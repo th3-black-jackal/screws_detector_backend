@@ -1,0 +1,20 @@
+listeners:
+  - type: "tcp"
+    id: "mqtt"
+    address: ":1883"
+
+hooks:
+  auth:
+    allow_all: false
+    ledger:
+      auth:
+        - username: testuser
+          password: testpass
+          allow: true
+      acl:
+        - username: testuser
+          filters:
+            "test/#": 3
+
+logging:
+  level: debug
